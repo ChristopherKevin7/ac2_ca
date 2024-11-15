@@ -12,30 +12,30 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
-import ac2_project.example.ac2_ca.entity.User;
-import ac2_project.example.ac2_ca.entity.User_Email;
-import ac2_project.example.ac2_ca.repository.User_Repository;
+import ac2_project.example.ac2_ca.entity.Aluno;
+import ac2_project.example.ac2_ca.entity.Aluno_Email;
+import ac2_project.example.ac2_ca.repository.Aluno_Repository;
 
 
 @ActiveProfiles("test")
 @DataJpaTest
 public class UserRepositoryTest {
 	@Autowired
-    private User_Repository userRepository;
+    private Aluno_Repository userRepository;
 
     @Test
     void testSaveAndFindUser() {
         //Cria um objeto User com um email válido
-        User user = new User();
-        user.setUsername("testUser");
-        user.setEmail(new User_Email("test@example.com"));
+        Aluno aluno = new Aluno();
+        aluno.setUsername("testUser");
+        aluno.setEmail(new Aluno_Email("test@example.com"));
 
          //Salva no banco de dados
-         User savedUser = userRepository.save(user);
+         Aluno savedUser = userRepository.save(aluno);
         assertNotNull(savedUser.getId());  // Verifica se o ID foi gerado
 
         // Busca o usuário pelo ID
-        Optional<User> retrievedUser = userRepository.findById(savedUser.getId());
+        Optional<Aluno> retrievedUser = userRepository.findById(savedUser.getId());
         assertTrue(retrievedUser.isPresent());
         assertEquals("testUser", retrievedUser.get().getUsername());
    }

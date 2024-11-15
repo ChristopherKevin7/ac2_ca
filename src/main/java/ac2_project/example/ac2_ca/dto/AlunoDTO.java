@@ -1,18 +1,19 @@
 package ac2_project.example.ac2_ca.dto;
 
-import ac2_project.example.ac2_ca.entity.User;
+import ac2_project.example.ac2_ca.entity.Aluno;
+import ac2_project.example.ac2_ca.entity.BeneficioPremium;
 
-public class UserDTO {
+public class AlunoDTO {
 
     private Long id;
     private String username;
     private String email;
 
     // Construtor vazio
-    public UserDTO() {}
+    public AlunoDTO() {}
 
     // Construtor com todos os parâmetros
-    public UserDTO(Long id, String username, String email) {
+    public AlunoDTO(Long id, String username, String email) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -42,18 +43,19 @@ public class UserDTO {
     public void setEmail(String email) {
         this.email = email;
     }
+    
 
     // Método de conversão de User para UserDTO
-    public static UserDTO fromEntity(User user) {
-        UserDTO userDTO = new UserDTO();
-        userDTO.setId(user.getId());
-        userDTO.setUsername(user.getUsername());
+    public static AlunoDTO fromEntity(Aluno aluno) {
+        AlunoDTO alunoDTO = new AlunoDTO();
+        alunoDTO.setId(aluno.getId());
+        alunoDTO.setUsername(aluno.getUsername());
 
         // Certifique-se de que o método getEmailAddress() existe na classe User_Email
-        if (user.getEmail() != null) {
-            userDTO.setEmail(user.getEmail().getEmailAddress());
+        if (aluno.getEmail() != null) {
+            alunoDTO.setEmail(aluno.getEmail().getEmailAddress());
         }
 
-        return userDTO;
+        return alunoDTO;
     }
 }

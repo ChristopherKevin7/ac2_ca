@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_user")
-public class User {
+public class Aluno {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  
@@ -18,9 +18,12 @@ public class User {
     private String username;
 
     @Embedded
-    private User_Email email;
+    private Aluno_Email email;
+    
+    @Embedded
+    private BeneficioPremium beneficioPremium;
 
-   	// Getters e Setters
+    // Getters e Setters
     public Long getId() {
         return id;
     }
@@ -37,11 +40,20 @@ public class User {
         this.username = username;
     }
 
-    public User_Email getEmail() {
+    public Aluno_Email getEmail() {
         return email;
     }
 
-    public void setEmail(User_Email email) {
+    public void setEmail(Aluno_Email email) {
         this.email = email;
+    }
+    
+ // Getters e Setters para beneficioPremium
+    public BeneficioPremium getBeneficioPremium() {
+        return beneficioPremium;
+    }
+
+    public void setBeneficioPremium(BeneficioPremium beneficioPremium) {
+        this.beneficioPremium = beneficioPremium;
     }
 }

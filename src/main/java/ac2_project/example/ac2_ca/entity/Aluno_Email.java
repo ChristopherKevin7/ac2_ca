@@ -5,14 +5,14 @@ import java.util.Objects;
 import jakarta.persistence.Embeddable;
 
 @Embeddable
-public class User_Email {
+public class Aluno_Email {
 
     private String emailAddress;
 
     // Construtor padrão necessário para o JPA
-    protected User_Email() {}
+    protected Aluno_Email() {}
 
-    public User_Email(String emailAddress) {
+    public Aluno_Email(String emailAddress) {
         if (emailAddress == null || !emailAddress.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
             throw new IllegalArgumentException("Email inválido");
         }
@@ -28,7 +28,7 @@ public class User_Email {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User_Email email = (User_Email) o;
+        Aluno_Email email = (Aluno_Email) o;
         return Objects.equals(emailAddress, email.emailAddress);
     }
 
